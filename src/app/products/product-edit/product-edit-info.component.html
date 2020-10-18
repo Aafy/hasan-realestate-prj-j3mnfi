@@ -1,14 +1,13 @@
 <div class="card-body">
-  <form novalidate
-        #productForm="ngForm">
-    <fieldset>
-      <legend>Basic Product Information</legend>
+	<form novalidate #productForm="ngForm">
+		<fieldset>
+			<legend>Basic Product Information</legend>
 
-      <div class="form-group row">
-        <label class="col-md-2 col-form-label"
+			<div class="form-group row">
+				<label class="col-md-2 col-form-label"
                for="productNameId">Land Name</label>
-        <div class="col-md-8">
-          <input class="form-control"
+				<div class="col-md-8">
+					<input class="form-control"
                  id="productNameId"
                  type="text"
                  placeholder="Name (required)"
@@ -21,22 +20,22 @@
                                             productNameVar.dirty ||
                                             product.id !== 0) && 
                                             !productNameVar.valid }" />
-          <span class="invalid-feedback">
+					<span class="invalid-feedback">
             <span *ngIf="productNameVar.errors?.required">
               Land name is required.
             </span>
-            <span *ngIf="productNameVar.errors?.minlength">
+					<span *ngIf="productNameVar.errors?.minlength">
               Land name must be at least three characters.
             </span>
-          </span>
-        </div>
-      </div>
+					</span>
+				</div>
+			</div>
 
-      <div class="form-group row">
-        <label class="col-md-2 col-form-label"
+			<div class="form-group row">
+				<label class="col-md-2 col-form-label"
                for="productCodeId">Land Code</label>
-        <div class="col-md-8">
-          <input class="form-control"
+				<div class="col-md-8">
+					<input class="form-control"
                  id="productCodeId"
                  type="text"
                  placeholder="Code (required)"
@@ -48,30 +47,53 @@
                                             productCodeVar.dirty ||
                                             product.id !== 0) &&
                                             !productCodeVar.valid }" />
-          <span class="invalid-feedback">
+					<span class="invalid-feedback">
             <span *ngIf="productCodeVar.errors?.required">
               Land code is required.
             </span>
-          </span>
-        </div>
-      </div>
+					</span>
+				</div>
+			</div>
 
-      <div class="form-group row">
-        <label class="col-md-2 col-form-label"
+			<div class="form-group row">
+				<label class="col-md-2 col-form-label"
                for="descriptionId">Description</label>
-        <div class="col-md-8">
-          <textarea class="form-control"
+				<div class="col-md-8">
+					<textarea class="form-control"
                     id="descriptionId"
                     placeholder="Description"
                     rows=3
                     [(ngModel)]=product.description
                     name="description"></textarea>
-        </div>
-      </div>
-    </fieldset>
-  </form>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-md-2 col-form-label"
+               for="releaseDate">Available From</label>
+				<div class="col-md-8">
+					<textarea class="form-control"
+                    id="releaseDate"
+                    placeholder="Date posted"
+                    rows=1
+                    [(ngModel)]=product.releaseDate
+                    name="releaseDate"></textarea>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-md-2 col-form-label"
+               for="price">Price</label>
+				<div class="col-md-8">
+					<textarea class="form-control"
+                    id="price"
+                    placeholder="Land Price"
+                    rows=1
+                    [(ngModel)]=product.price
+                    name="price"></textarea>
+				</div>
+			</div>
+		</fieldset>
+	</form>
 </div>
 
-<div class='alert alert-danger'
-     *ngIf='errorMessage'>{{errorMessage}}
+<div class='alert alert-danger' *ngIf='errorMessage'>{{errorMessage}}
 </div>
