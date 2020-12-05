@@ -11,6 +11,8 @@ export interface Product {
   phoneNumber: number;
   description: string;
   imageUrl: string;
+  latitude: number;
+  longitude: number;
 }
 
 export interface ProductResolved {

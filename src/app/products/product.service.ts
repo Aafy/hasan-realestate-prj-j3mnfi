@@ -88,6 +88,8 @@ export class ProductService {
       releaseDate: null,
       price: null,
       contactDetails: null,
+      longitude: null,
+      latitude: null,
       phoneNumber: null,
       description: null,
       imageUrl: null
