@@ -1,47 +1,78 @@
-<span class =  "fa fa-spinner spinner" *ngIf="loading"></span>
+<span class="fa fa-spinner spinner" *ngIf="loading"></span>
 <nav class="navbar navbar-expand navbar-light bg-light">
   <a class="navbar-brand">{{pageTitle}}</a>
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" [routerLink]="['/welcome']" routerLinkActive="active">Home</a>
+      <a class="nav-link" [routerLink]="['/welcome']" routerLinkActive="active"
+        >Home</a
+      >
     </li>
     <li class="nav-item">
-      <a class="nav-link" [routerLink]="['/products']"  routerLinkActive="active" [routerLinkActiveOptions] = "{exact: true}">Land List</a>
+      <a
+        class="nav-link"
+        [routerLink]="['/products']"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}"
+        >Land List</a
+      >
     </li>
     <li class="nav-item">
-      <a class="nav-link" [routerLink]="['/products',0,'edit']"  routerLinkActive="active">Add New Land Details</a>
+      <a
+        class="nav-link"
+        [routerLink]="['/products',0,'edit']"
+        routerLinkActive="active"
+        >Add New Land Details</a
+      >
     </li>
   </ul>
   <ul class="navbar-nav ml-auto">
-    <li class="nav-item"
-        *ngIf="isLoggedIn">
+    <li class="nav-item" *ngIf="isLoggedIn">
       <a class="nav-link">Welcome {{ userName }}</a>
     </li>
     <li class="nav-item">
-      <!-- <a class="nav-link" [routerLink]="[{ outlets:{popup: ['messages']}}]">Show Messages</a> -->
-      <a class="nav-link" *ngIf="!isMessageDisplayed" (click)="displayMessages()">Show Messages</a>
+      <a
+        class="nav-link"
+        *ngIf="!isMessageDisplayed"
+        (click)="displayMessages()"
+        >Show Messages</a
+      >
     </li>
-      <li class="nav-item">
-      <!-- <a class="nav-link" [routerLink]="[{ outlets:{popup: ['messages']}}]">Show Messages</a> -->
-      <a class="nav-link" *ngIf="isMessageDisplayed" (click)="hideMessages()">Hide Messages</a>
+    <li class="nav-item">
+      <a class="nav-link" *ngIf="isMessageDisplayed" (click)="hideMessages()"
+        >Hide Messages</a
+      >
     </li>
-    <li class="nav-item"
-        *ngIf="!isLoggedIn">
-      <a class="nav-link" [routerLink]="['/login']"  routerLinkActive="active">Log In</a>
+    <li class="nav-item" *ngIf="!isLoggedIn">
+      <a class="nav-link" [routerLink]="['/login']" routerLinkActive="active"
+        >Log In</a
+      >
     </li>
-    <li class="nav-item"
-        *ngIf="isLoggedIn">
-      <a class="nav-link"
-         (click)="logOut()" [routerLink]="['/welcome']"  routerLinkActive="active">Log Out</a>
+    <li class="nav-item" *ngIf="isLoggedIn">
+      <a
+        class="nav-link"
+        (click)="logOut()"
+        [routerLink]="['/welcome']"
+        routerLinkActive="active"
+        >Log Out</a
+      >
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/contact']" routerLinkActive="active"
+        >Contact</a
+      >
     </li>
   </ul>
 </nav>
 <div class="container">
   <div class="row">
-    <div class="col-md-10" [@slideInAnimation]="o.isActivated ? o.activatedRoute : ''"> 
- <router-outlet #o="outlet" ></router-outlet>
-</div>
-  <div class="col-md-2"> 
-    <router-outlet name="popup"></router-outlet> </div>
+    <div
+      class="col-md-10"
+      [@slideInAnimation]="o.isActivated ? o.activatedRoute : ''"
+    >
+      <router-outlet #o="outlet"></router-outlet>
+    </div>
+    <div class="col-md-2">
+      <router-outlet name="popup"></router-outlet>
+    </div>
   </div>
 </div>

@@ -5,6 +5,7 @@ import { PageNotFoundComponent } from "./page-not-found.component";
 import { AuthGuard } from "./user/auth.guard";
 import { SelectiveStrategy } from "./selective-strategy.service";
 import { SignupComponent } from "./signup/signup.component";
+import { ContactInfoComponent } from "./contact-info/contact-info.component";
 @NgModule({
   imports: [
     RouterModule.forRoot(
@@ -16,6 +17,10 @@ import { SignupComponent } from "./signup/signup.component";
         {
           path: "signup",
           component: SignupComponent
+        },
+        {
+          path: "contact",
+          component: ContactInfoComponent
         },
         {
           path: "products",

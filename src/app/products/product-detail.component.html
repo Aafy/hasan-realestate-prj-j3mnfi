@@ -1,93 +1,99 @@
 <div class="card">
-	<div class="card-header">
-		{{pageTitle}}
-	</div>
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
 
-	<div class="card-body" *ngIf="product">
+  <div class="card-body" *ngIf="product">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-3"><b>Name:</b></div>
+          <div class="col-md-6">{{product.productName}}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-3"><b>Code:</b></div>
+          <div class="col-md-6">{{product.productCode}}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-3"><b>Description:</b></div>
+          <div class="col-md-6">{{product.description}}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-3"><b>Availability:</b></div>
+          <div class="col-md-6">{{product.releaseDate}}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-3"><b>Price:</b></div>
+          <div class="col-md-6">{{product.price|currency:"USD":"symbol"}}</div>
+        </div>
 
-		<div class="row">
-
-			<div class="col-md-8">
-				<div class="row">
-					<div class="col-md-3">Name:</div>
-					<div class="col-md-6">{{product.productName}}</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3">Code:</div>
-					<div class="col-md-6">{{product.productCode}}</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3">Description:</div>
-					<div class="col-md-6">{{product.description}}</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3">Availability:</div>
-					<div class="col-md-6">{{product.releaseDate}}</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3">Price:</div>
-					<div class="col-md-6">{{product.price|currency:"USD":"symbol"}}</div>
-				</div>
-
-				<div class="row">
-					<div class="col-md-3">Category:</div>
-					<div class="col-md-6">{{product.category}}</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3">Tags:</div>
-					<div class="col-md-6">{{product.tags}}</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3">Contact Details:</div>
-					<div class="col-md-6">{{product.contactDetails}}</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3">Phone Number:</div>
-					<div class="col-md-6">{{product.phoneNumber}}</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3">Latitude:</div>
-					<div class="col-md-6">{{product.latitude}}</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3">Longitude:</div>
-					<div class="col-md-6">{{product.longitude}}</div>
-				</div>
-				<br>
-				<button class="btn btn-outline-warning"
-                style="width:280px; padding-left: 20px; "
-                type="button"
-                title="View this land"
-                (click)="openMap()">
-         View this location in Map
+        <div class="row">
+          <div class="col-md-3"><b>Category:</b></div>
+          <div class="col-md-6">{{product.category}}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-3"><b>Tags:</b></div>
+          <div class="col-md-6">{{product.tags}}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-3"><b>Contact Details:</b></div>
+          <div class="col-md-6">{{product.contactDetails}}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-3"><b>Phone Number:</b></div>
+          <div class="col-md-6">{{product.phoneNumber}}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-3"><b>Latitude:</b></div>
+          <div class="col-md-6">{{product.latitude}}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-3"><b>Longitude:</b></div>
+          <div class="col-md-6">{{product.longitude}}</div>
+        </div>
+        <br />
+        <button
+          class="btn btn-outline-warning"
+          style="width:280px; padding-left: 20px; "
+          type="button"
+          title="View this land"
+          (click)="openMap()"
+        >
+          View this location in Map
         </button>
-			</div>
-
-			<div class="col-md-4" *ngIf="product.imageUrl">
-				<img class="center-block img-responsive"
-             [style.height.px]="150"
-             [style.margin.px]="2"
-             [src]="product.imageUrl"
-             [title]="product.productName">
       </div>
-			</div>
 
-			<div class="row mt-4">
-				<div class="col-md-4">
-					<button class="btn btn-outline-secondary mr-3"
-                style="width:80px" [routerLink]="['/products']" queryParamsHandling="preserve">
+      <div class="col-md-4" *ngIf="product.imageUrl">
+        <img
+          class="center-block img-responsive"
+          [style.height.px]="150"
+          [style.margin.px]="2"
+          [src]="product.imageUrl"
+          [title]="product.productName"
+        />
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <button
+          class="btn btn-outline-secondary mr-3"
+          style="width:80px"
+          [routerLink]="['/products']"
+          queryParamsHandling="preserve"
+        >
           <i class="fa fa-chevron-left"></i> Back
         </button>
-					<button class="btn btn-outline-primary"
-                style="width:80px" [routerLink]="['/products',product.id,'edit']">
+        <button
+          class="btn btn-outline-primary"
+          style="width:80px"
+          [routerLink]="['/products',product.id,'edit']"
+        >
           Edit
         </button>
+      </div>
+    </div>
+  </div>
+</div>
 
-				</div>
-			</div>
-
-		</div>
-	</div>
-
-	<div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}
-	</div>
+<div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}</div>

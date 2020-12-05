@@ -16,6 +16,7 @@ import { UserModule } from './user/user.module';
 import { MessageModule } from './messages/message.module';
 import {AppRoutingModule} from './app-routing.module';
 import { SignupComponent } from './signup/signup.component';
+import { ContactInfoComponent } from './contact-info/contact-info.component';
 @NgModule({
   imports: [
     BrowserModule,
@@ -37,7 +38,8 @@ import { SignupComponent } from './signup/signup.component';
     AppComponent,
     WelcomeComponent,
     PageNotFoundComponent,
-    SignupComponent
+    SignupComponent,
+    ContactInfoComponent
   ],
   bootstrap: [AppComponent]
 })
