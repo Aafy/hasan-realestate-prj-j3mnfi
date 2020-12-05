@@ -15,6 +15,7 @@ import { PageNotFoundComponent } from './page-not-found.component';
 import { UserModule } from './user/user.module';
 import { MessageModule } from './messages/message.module';
 import {AppRoutingModule} from './app-routing.module';
+import { SignupComponent } from './signup/signup.component';
 @NgModule({
   imports: [
     BrowserModule,
@@ -35,7 +36,8 @@ import {AppRoutingModule} from './app-routing.module';
   declarations: [
     AppComponent,
     WelcomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SignupComponent
   ],
   bootstrap: [AppComponent]
 })

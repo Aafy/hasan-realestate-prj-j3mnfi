@@ -1,32 +1,32 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
-import { User } from './user';
-import { MessageService } from '../messages/message.service';
+import { User } from "./user";
+import { MessageService } from "../messages/message.service";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class AuthService {
   currentUser: User;
-  redirectUrl : string;
+  redirectUrl: string;
   get isLoggedIn(): boolean {
     return !!this.currentUser;
   }
 
-  constructor(private messageService: MessageService) { }
+  constructor(private messageService: MessageService) {}
 
   login(userName: string, password: string): void {
     if (!userName || !password) {
-      this.messageService.addMessage('Please enter your userName and password');
+      this.messageService.addMessage("Please enter your userName and password");
       return;
     }
-    if (userName === 'admin') {
+    if (userName === "admin") {
       this.currentUser = {
         id: 1,
         userName: userName,
         isAdmin: true
       };
-      this.messageService.addMessage('Admin login');
+      this.messageService.addMessage("Admin login");
       return;
     }
     this.currentUser = {
@@ -34,7 +34,9 @@ export class AuthService {
       userName: userName,
       isAdmin: false
     };
-    this.messageService.addMessage(`User: ${this.currentUser.userName} logged in`);
+    this.messageService.addMessage(
+      `User: ${this.currentUser.userName} logged in`
+    );
   }
 
   logout(): void {
