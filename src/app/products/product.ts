@@ -7,6 +7,8 @@ export interface Product {
   tags?: string[];
   releaseDate: string;
   price: number;
+  contactDetails: string;
+  phoneNumber: number;
   description: string;
   imageUrl: string;
 }
