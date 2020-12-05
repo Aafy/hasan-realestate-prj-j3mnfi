@@ -1,32 +1,33 @@
-import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import {Router} from '@angular/router';
-import { AuthService } from './auth.service';
+import { Component } from "@angular/core";
+import { NgForm } from "@angular/forms";
+import { Router } from "@angular/router";
+import { AuthService } from "./auth.service";
 
 @Component({
-  templateUrl: './login.component.html'
+  templateUrl: "./login.component.html"
 })
 export class LoginComponent {
   errorMessage: string;
-  pageTitle = 'Log In';
+  pageTitle = "Log In";
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) {}
 
   login(loginForm: NgForm) {
-    if (loginForm && loginForm.valid) {
-      const userName = loginForm.form.value.userName;
-      const password = loginForm.form.value.password;
-      this.authService.login(userName, password);
+    const userName = loginForm.form.value.userName;
+    const password = loginForm.form.value.password;
+    let getIndex = this.authService.users.findIndex(
+      x => x.password === password && x.userName === userName
+    );
 
-      // Navigate to the Product List page after log in.
-     /*  this.router.navigate(['/products']); */
-     if(this.authService.redirectUrl){
-       this.router.navigateByUrl(this.authService.redirectUrl);
-     } else {
-        this.router.navigate(['/products']);
-     }
+    if (getIndex >= 0) {
+      this.authService.login(userName, password);
+      if (this.authService.redirectUrl) {
+        this.router.navigateByUrl(this.authService.redirectUrl);
+      } else {
+        this.router.navigate(["/products"]);
+      }
     } else {
-      this.errorMessage = 'Please enter a user name and password.';
+      this.errorMessage = "Please enter valid user name and password.";
     }
   }
 }

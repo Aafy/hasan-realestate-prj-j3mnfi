@@ -60,7 +60,7 @@ export class ProductData implements InMemoryDbService {
         description: "Purity garden associated with Guest House",
         price: 110000.55,
         contactDetails: "Vijay, Banglore - 566789",
-        phoneNumber: 776689955,
+        phoneNumber: 7766899565,
         latitude: 12.971599,
         longitude: 77.594566,
         imageUrl:

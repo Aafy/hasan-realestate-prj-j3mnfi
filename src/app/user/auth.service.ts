@@ -14,6 +14,10 @@ export class AuthService {
   }
 
   constructor(private messageService: MessageService) {}
+  users: any[] = new Array<any>();
+  createUsers(cred) {
+    this.users.push(cred);
+  }
 
   login(userName: string, password: string): void {
     if (!userName || !password) {
