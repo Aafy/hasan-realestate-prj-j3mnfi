@@ -53,6 +53,14 @@
 					<div class="col-md-3">Longitude:</div>
 					<div class="col-md-6">{{product.longitude}}</div>
 				</div>
+				<br>
+				<button class="btn btn-outline-warning"
+                style="width:280px; padding-left: 20px; "
+                type="button"
+                title="View this land"
+                (click)="openMap()">
+         View this location in Map
+        </button>
 			</div>
 
 			<div class="col-md-4" *ngIf="product.imageUrl">
@@ -74,6 +82,7 @@
                 style="width:80px" [routerLink]="['/products',product.id,'edit']">
           Edit
         </button>
+
 				</div>
 			</div>
 
